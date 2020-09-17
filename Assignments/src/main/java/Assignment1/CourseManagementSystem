@@ -1,0 +1,66 @@
+Course Management System(like Canvas)
+
+-Online Platform
+        Data: Students, Professors, calender, mail box, student portal , teacher portal
+        Behaviours:
+
+-Student
+        Data: UserID, email, program details
+        Behaviour: login
+                   check class schedule
+                   join meetings
+                   listen to recording
+                   submit assignment
+                   send email
+                   start discussion
+
+-Professor
+        Data: UserID, email, list of courses
+        Behaviour: login
+                   start meetings
+                   post assignments
+                   start recording
+                   grade students
+                   send email
+                   start discussion
+
+-Calender
+        Data: Dates, events
+        Behaviours: give reminders
+                    display events
+
+Pseudo code:
+OnlinePlatform canvas;
+Student jessy;
+Professor dan;
+
+StudentPortal sp = jessy.login(jessy.userID, jessy.password);
+TeacherPortal tp = dan.login(dan.userID, dan.password);
+if(calender.givesClassReminder)
+    dan.startMeeting;
+    jessy.joinMeeting;
+    dan.recordMeeting;
+else
+    jessy.checkClassSchedule;
+if(jessy.missedMeeting)
+    jessy.accessRecording;
+if(jessy.hasADoubtFromClass)
+    if(jessy.wantsToDiscussWithClass);
+        jessy.postAnnouncement;
+    elseIf(jesyy.wantsToAskTA);
+        jessy.sendEmail(TA.emailID);
+if(dan.postAssignment);
+    jessy.submitAssignment;
+    if(jessy.submitAssignment)
+    dan.gradeJessy;
+
+
+
+
+
+
+
+
+
+
+

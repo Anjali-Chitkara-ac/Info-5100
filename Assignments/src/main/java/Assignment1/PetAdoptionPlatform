@@ -1,0 +1,49 @@
+Pet Adoption Platform:
+
+-Pet Adoption Company
+        Data: List of Animals, address
+        Behaviour: rescue animals
+                   check customer background
+                   give for adoption
+                   cancel adoption
+                   post new animals for adoption
+                   charge Adoption Fee
+
+-Animal
+        Data: type, breed, age, sex, name, health, description, adoptionFee
+        Behaviour:
+
+-Customer
+        Data: userID, address
+        Behaviour: select animal
+                   select breed
+                   like animal
+                   adopt animal
+                   complete paper work
+                   Pay adoption fee
+
+PseudoCode:
+
+Customer James;
+Pet Adoption Company PetCo;
+
+James.login(UserId,password);
+Animal ginger = James.selectAnimal(AnimalType);
+James.checkDescription(ginger);
+if(James.likesAnimal)
+James.fillPaperWork;
+PetCo.checkBackground(James.fetchDetails);
+    if(James.background is ok)
+    James.payAdoptionFee(Credentials);
+    PetCo.giveForAdoption(ginger,James);
+    else if(James.Background is not ok)
+    PetCo.cancelAdoption(James);
+else
+James.logout;
+
+
+
+
+
+
+

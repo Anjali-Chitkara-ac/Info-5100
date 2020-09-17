@@ -1,0 +1,48 @@
+Course Registration Platform :
+
+-OnlinePlatform
+        Data: Students, List of DegreePrograms, PaymentPortal
+        Behaviour: display course details
+                   notify students
+                   send confirmation e-mails
+
+-Student
+        Data: StudentID, emailID, Name of Program(in which the student is enrolled)
+        Behaviour: select course
+                   drop course
+                   register for course
+
+-Degree Program
+        Data: List of courses, List of students enrolled
+
+-Course
+        Data: CourseID, credits, Professor, Teaching method, Total capacity, waitList capacity
+        Behaviour:
+
+PseudoCode:
+
+CourseRegistrationPlatform neu_reg;
+Student lily;
+
+lily.login(emailID, password);
+CourseList availableCourses = lily.selectProgram(degreeProgram, session);
+neu_reg.displayCourseDetails(availableCourses);
+Course c = lily.selectCourse();
+if(c.availableSeats>0)
+lily.registerCourse(c);
+else
+c = lily.selectCourse;
+if(lily.registerCourse(c) is successful)
+    neu_reg.updateAvailableSeats(c);
+    PaymentPortal pp = neu_reg.askForPayment;
+    lily.makePayment(pp,credentials);
+        if(pp.paymentSuccess)
+            neu_reg.sendConfirmationToStudent;
+        else
+            neu_reg.notifyStudent;
+else
+neu_reg.notifyStudent;
+if(lily.changeMind)
+lily.dropCourse(c);
+neu_reg.updateAvailableSeats(c);
+

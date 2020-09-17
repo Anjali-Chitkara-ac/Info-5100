@@ -1,0 +1,81 @@
+Ordering food on a Food delivery app :
+
+- Food Delivery App :
+        Data(Detailed below) : Restaurants, Customers, Delivery people, payment portal
+        Behaviours: get nearest delivery person
+                    assign a delivery person
+                    ask for payment
+                    pay the delivery person
+                    send confirmation message to restaurant
+                    send cancellation message to restaurant
+                    send confirmation message to customer
+                    send cancellation message to customer
+
+- Restaurants
+        Data: Name, ID, address, Food/Menu, phone number
+        Behaviour: advertise
+                   add food item to menu
+                   offer Discounts
+                   accept order
+                   cancel order
+- Customer
+        Data: userID, address, phone number
+        Behaviour: select restaurant
+                   add food item to cart
+                   remove food item from cart
+                   order food
+                   make payment
+                   receive food
+                   request refund
+                   write review
+
+- Delivery Person
+        Data: Name, ID, current location, phone number, no. of deliveries
+        Behaviour: accept delivery
+                   deliver food
+
+- Payment Portal
+        Data: Receiver's details- Restaurant details, Delivery person details(for tips)
+        Behaviour: accept payment
+
+Pseudo Code:
+
+FoodDeliveryApp UberEats;
+Customer John;
+
+John.login(userID, password);
+Restaurant DumplingHood = John.selectRestaurant(cuisine);
+John.addFoodItemToCart();
+John.orderFood();
+if(DumplingHood accepted order)
+PaymentPortal pp = John.makePayment(CardDetails);
+    if(pp.acceptPayment is success)
+    UberEats.sendConfirmationMessageToCustomer;
+    UberEats.sendConfirmationMessageToRestaurant;
+    DeliveryPerson dp = UberEats.getNearestDeliveryPerson(Restaurant.address, Customer.address);
+        if(!dp.acceptDelivery)
+        dp =UberEats.getNearestDeliveryPerson(Restaurant.address, Customer.address);
+    dp.deliverFood;
+    else
+    UberEats.sendErrorMessageToCustomer;
+else
+UberEats.sendErrorMessageToCustomer;
+
+if(John.receivedFood)
+    if(John.likedDelivery)
+    John.tip(dp);
+John.giveRating;
+John.writeReview;
+else
+John.requestRefund;
+UberEats.processRefund;
+
+UberEats.payTheDeliveryPerson(dp.accountDetails, dp.numberOfDeliveries);
+
+
+
+
+
+
+
+

@@ -1,0 +1,70 @@
+App to book Airline Ticket:
+
+-Flight Booking App
+        Data: List of AirLines, List of start locations, List of end locations, start date, return date
+        Behaviour: send confirmation message to passenger
+                   display fight details
+                   display price
+                   cancel flights
+                   issue refund
+                   notify passenger
+
+-AirLines
+        Data: Name, flight schedule(start location, end location, time)
+        Behaviour: TakeOff
+                   Land
+                   LayOver
+                   change schedule
+
+-Passenger
+        Data: userID, password, cardDetails
+        Behaviour: login
+                   select start location
+                   select end location
+                   select start date
+                   select return date
+                   make payment
+                   cancel booking
+                   give review
+
+-Payment Portal
+        Data:
+        Behaviour: accept Payment
+
+
+Pseudo code:
+
+Passenger Chris;
+FlightBookingApp Expedia;
+
+Chris.login(userID,password);
+Chris.selectStartLocation(Loc a);
+Chris.selectDestination(Loc b);
+Chris.selectStartDate(Date d1);
+Chris.selectReturnDate(Date d2);
+
+if(Chris has selected all required fields)
+Expedia.displayAvailableFlights(a, b, d1, d2);
+Airline etihad = Chris.selectSuitableFlight;
+PaymentPortal pp = Chris.makePayment(Chris.cardDetails);
+    if(pp.acceptPayment is success)
+    Expedia.sendConfirmationToPassenger;
+else
+Expedia.askPassengerToEnterAllDetails;
+if(Chris.changedPlans)
+Chris.cancelBooking;
+Chris.askForRefund(Expedia.BookingID);
+Expedia.issueRefund;
+if(etihad.changesSchedule)
+Expedia.notifyPassenger;
+else
+etihad.takeOff;
+etihad.layOver;
+etihad.land;
+Chris.reachDestination;
+if(Chris.isHappy)
+Chris.giveGoodReview;
+else
+Chris.giveBadReview;
+
+
